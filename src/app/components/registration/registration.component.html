@@ -1,0 +1,54 @@
+<section @fade class="section-registration">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 offset-xl-3">
+          <h1>Sing Up</h1>
+          <form class="form form-register" name="form" (ngSubmit)="onSingUp(Confirm)" #Confirm="ngForm" [formGroup]="form.formGroup" novalidate>
+            <div class="form-group">
+                <input placeholder="First name" type="text" class="form-control" name="firstName"  formControlName="firstName" required/>
+                <div class="alert alert-danger" *ngIf="form.getControl('firstName').invalid && (form.getControl('firstName').dirty || form.getControl('firstName').touched)">
+                  <div *ngIf="form.getControl('firstName').errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input placeholder="Last name" type="text" class="form-control" name="lastName" formControlName="lastName" required/>
+                <div class="alert alert-danger" *ngIf="form.getControl('lastName').invalid && (form.getControl('lastName').dirty || form.getControl('lastName').touched)">
+                  <div *ngIf="form.getControl('lastName').errors.required">Last Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <input placeholder="Email" type="text" class="form-control" name="email" formControlName="email" required/>
+              <div class="alert alert-danger" *ngIf="form.getControl('email').invalid && (form.getControl('email').dirty || form.getControl('email').touched)">
+                  <div *ngIf="form.getControl('email').errors.required" class="help-block">Email is required</div>
+                <div *ngIf="form.getControl('email').errors.email" class="help-block">Email is has invalid content</div>
+              </div>
+            </div>
+            <div class="form-group">
+                <input placeholder="Password" type="password" class="form-control" name="password" formControlName="password" required/>
+                <div class="alert alert-danger" *ngIf="form.getControl('password').invalid && (form.getControl('password').dirty || form.getControl('password').touched)">
+                  <div *ngIf="form.getControl('password').errors.required" class="help-block">Password is required</div>
+                  <div *ngIf="form.getControl('password').hasError('minlength')" class="help-block">Password must has more than 8 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input placeholder="Confirm Password" type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword" required/>
+                <div class="alert alert-danger" *ngIf="form.getControl('confirmPassword').invalid && (form.getControl('confirmPassword').dirty || form.getControl('confirmPassword').touched)">
+                  <div *ngIf="form.getControl('confirmPassword').errors.required" class="help-block">Password is required</div>
+                  <div *ngIf="form.getControl('confirmPassword').errors.mustMatch" class="help-block">Passwords must match</div>
+                  <div *ngIf="form.getControl('confirmPassword').hasError('minlength')" class="help-block">Password must has more than 8 characters</div>
+                </div>
+            </div>
+            <ai-alert></ai-alert>
+            <div class="form-group">
+              <button
+                [disabled]="!Confirm.valid"
+                [ngClass]="Confirm.valid?'btn btn-primary':'btn btn-outline-secondary'" 
+                class="btn">Sing Up</button>
+              <a [routerLink]="['/login']" class="btn btn-link">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  

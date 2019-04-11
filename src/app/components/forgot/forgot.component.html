@@ -1,0 +1,25 @@
+<section @fade class="section-forgot">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 offset-xl-3">
+        <h2>Enter your email</h2>
+        <form name="form" (ngSubmit)="onForgot(Forgot)" #Forgot="ngForm" [formGroup]="form.formGroup" novalidate>
+          <div class="form-group">
+            <input placeholder="Email" type="text" class="form-control" name="email" formControlName="email" required/>
+            <div class="alert alert-danger" *ngIf="form.getControl('email').invalid && (form.getControl('email').dirty || form.getControl('email').touched)">
+              <div *ngIf="form.getControl('email').errors.required" class="help-block">Email is required</div>
+              <div *ngIf="form.getControl('email').errors.email" class="help-block">Email is has invalid content</div>
+            </div>
+            <button
+                class="btn" 
+                type="submit" 
+                [disabled]="!Forgot.valid" 
+                [ngClass]="Forgot.valid?'btn btn-primary':'btn btn-outline-secondary'">Send me email
+            </button>
+            <a [routerLink]="['/login']" class="btn btn-link">Back to Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+<section @fade class="section-manager">
+
+  <!-- Filter section -->
+  <div class="section-manager_filter">
+    <div class="section-manager_form d-flex">
+      <div class="section-manager_search-name d-flex">
+        <div class="form-group form-inline">
+          <input [(ngModel)]="searchText" placeholder="Search" class="form-control ml-2 mr-2" type="text" />
+        </div>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownName" ngbDropdownToggle>Filter by Name</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownName">
+            <button ngbDropdownItem>Name</button>
+            <button ngbDropdownItem>Email</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-manager_search-order d-flex">
+        <p class="ml-5">Order</p>
+        <div ngbDropdown class="d-inline-block ml-2">
+          <button class="btn btn-outline-primary" id="dropdownRecent" ngbDropdownToggle>Filter by Order</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownRecent">
+            <button ngbDropdownItem>Alphabetical</button>
+            <button ngbDropdownItem>Join date</button>
+            <button ngbDropdownItem>Last login date</button>
+            <button ngbDropdownItem>Last upload date</button>
+            <button ngbDropdownItem>Most successfulsales</button>
+            <button ngbDropdownItem>Most pending sales</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-manager_search-status d-flex">
+        <p class="ml-5">Status</p>
+        <div ngbDropdown class="d-inline-block ml-2">
+          <button class="btn btn-outline-primary" id="dropdownSteps" ngbDropdownToggle>Filter by Status</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownSteps">
+            <button ngbDropdownItem>All</button>
+            <button ngbDropdownItem>User</button>
+            <button ngbDropdownItem>Admin</button>
+            <button ngbDropdownItem>Suspended</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Filter section -->
+
+  <!-- Table Settings -->
+  <div class="section-manager_tables">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Joined</th>
+          <th scope="col">Last Login</th>
+          <th scope="col">last Upload</th>
+          <th scope="col">Successful sales</th>
+          <th scope="col">Pending sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admin | filterPipe: searchText">
+          <td class="admin-block">
+            <p class="admin-block_email">
+              {{ admin.name }}
+              <a href="mailto:emailAdmin@example.com" class="admin-wrap_emailer">emailAdmin@example.com</a>
+            </p>
+            <div class="section-settings_dropdown ml-3" ngbDropdown>
+              <button class="btn btn-outline-primary" id="dropdownAdmin" ngbDropdownToggle>User</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownAdmin">
+                <button ngbDropdownItem>User</button>
+                <button ngbDropdownItem>Admin</button>
+              </div>
+            </div>
+          </td>
+          <td>{{ admin.status }}</td>
+          <td>{{ admin.joined | number }}</td>
+          <td>{{ admin.login | number }}</td>
+          <td>{{ admin.upload | number }}</td>
+          <td>{{ admin.sales | number }}</td>
+          <td>{{ admin.pending | number }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success">Save</button>
+  </div>
+  <!-- /Table settings -->
+
+</section>

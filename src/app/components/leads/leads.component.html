@@ -1,0 +1,86 @@
+<section @fade class="section-leads">
+
+  <!-- Filter section -->
+  <div class="section-leads_search">
+    <div class="section-leads_search-name d-flex">
+      <div class="form-group form-inline">
+        <input [(ngModel)]="searchText" placeholder="Search" class="form-control ml-2 mr-2" type="text" />
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownName" ngbDropdownToggle>Filter by Name</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownName">
+          <button ngbDropdownItem>Name</button>
+          <button ngbDropdownItem>Company</button>
+          <button ngbDropdownItem>Added before</button>
+          <button ngbDropdownItem>Added after</button>
+          <button ngbDropdownItem>interacted before</button>
+          <button ngbDropdownItem>interacted after</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-leads_search-recent d-flex">
+      <p class="ml-5">Order</p>
+      <div ngbDropdown class="d-inline-block ml-2">
+        <button class="btn btn-outline-primary" id="dropdownRecent" ngbDropdownToggle>Filter by Recent</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownRecent">
+          <button ngbDropdownItem>Name</button>
+          <button ngbDropdownItem>Company</button>
+          <button ngbDropdownItem>Step number</button>
+          <button ngbDropdownItem>Most recent interaction</button>
+          <button ngbDropdownItem>Least recent interaction</button>
+          <button ngbDropdownItem>Most recently added</button>
+          <button ngbDropdownItem>Least recently added</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-leads_search-steps d-flex">
+      <p class="ml-5">Filter</p>
+      <div ngbDropdown class="d-inline-block ml-2">
+        <button class="btn btn-outline-primary" id="dropdownSteps" ngbDropdownToggle>All Steps</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownSteps">
+          <button ngbDropdownItem>Name</button>
+          <button ngbDropdownItem>Company</button>
+          <button ngbDropdownItem>Step number</button>
+          <button ngbDropdownItem>Most recent interaction</button>
+          <button ngbDropdownItem>Least recent interaction</button>
+          <button ngbDropdownItem>Most recently added</button>
+          <button ngbDropdownItem>Least recently added</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- /Filter section -->
+
+  <!-- Table section -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Company</th>
+        <th scope="col">Added</th>
+        <th scope="col">Last Interaction</th>
+        <th scope="col">Step</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lead of leads | filterPipe: searchText">
+        <td>{{ lead.name }}</td>
+        <td>{{ lead.area }}</td>
+        <td>{{ lead.added | number }}</td>
+        <td>{{ lead.visit | number }}</td>
+        <td>{{ lead.steps }}</td>
+        <td>
+          <button class="btn btn-primary"><fa name="pause"></fa></button>
+          <button class="btn btn-secondary"><fa name="envelope"></fa></button>
+          <button class="btn btn-danger"><fa name="times"></fa></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- /Table Section  -->
+</section>

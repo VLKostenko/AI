@@ -1,0 +1,17 @@
+.section-manager {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	position: relative;
+	&_tables {
+		margin-top: 2em;
+		margin-bottom: 2em;
+		.admin-block {
+			display: flex;
+			align-items: center;
+			&_email {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+}

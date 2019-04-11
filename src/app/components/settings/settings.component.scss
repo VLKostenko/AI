@@ -1,0 +1,65 @@
+
+// Variables color
+$link-blue: #007bff;
+
+.dropdown-toggle {
+	width: 15em;
+	text-align: left;
+}
+
+.section-settings { 
+	position: relative;
+	padding-top: 2em;
+	.admin-wrap {
+		&_emailer {
+			display: flex;
+			flex-direction: column;
+			font-size: 15px;
+			color: $link-blue;
+			cursor: pointer;
+		}
+	}
+	&_form {
+		display: flex;
+		flex-direction: column;
+		margin-top: 2em;
+		&-first {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1em;
+			.btn {
+				margin-right: 20px;
+			}
+			.form-control {
+				width: 10%;
+				margin-right: 20px;
+			}
+			.p-dropdown {
+				margin-bottom: 0;
+				font-size: 15px;
+				margin-right: 15px;
+			}	
+		}
+		&-second {
+			flex-direction: column;
+			align-items: flex-start;
+			@extend .section-settings_form-first;
+			.wrapper-filter {
+				width: 100%;
+				display: flex;
+				margin-bottom: 2em;
+			}
+			.wrapper-message {
+				width: 100%;
+				display: flex;
+				justify-content: flex-end;
+				@extend .wrapper-filter;
+				textarea {
+					width: calc(100% - 9em);
+					border-radius: 15px;
+					padding: 10px;
+				}
+			}
+		}
+	}
+}

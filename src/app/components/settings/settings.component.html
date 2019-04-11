@@ -1,0 +1,95 @@
+<section @fade class="section-settings">
+
+  <!-- Table Settings -->
+  <div class="section-settings_tables">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Joined</th>
+          <th scope="col">Last Login</th>
+          <th scope="col">last Upload</th>
+          <th scope="col">Successful sales</th>
+          <th scope="col">Pending sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admin">
+          <td>
+            <p class="admin-wrap">
+              {{ nameLoggedUser }}
+              <a href="mailto:emailAdmin@example.com" class="admin-wrap_emailer">{{ emailLoggedUser }}</a>
+            </p>
+          </td>
+          <td>{{ admin.status }}</td>
+          <td>{{ admin.joined | number }}</td>
+          <td>{{ admin.login | number }}</td>
+          <td>{{ admin.upload | number }}</td>
+          <td>{{ admin.sales | number }}</td>
+          <td>{{ admin.pending | number }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /Table settings -->
+
+  <!-- Section Filters -->
+  <div class="section-settings_filters">
+    <form class="section-settings_form d-flex">
+
+      <div class="section-settings_form-first">
+        <p class="p-dropdown">Change scheduling for...</p>
+        <div class="section-settings_dropdown" ngbDropdown>
+          <button class="btn btn-outline-primary" id="dropdownSteps" ngbDropdownToggle>Step</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownSteps">
+            <button ngbDropdownItem>Name</button>
+            <button ngbDropdownItem>Company</button>
+            <button ngbDropdownItem>Added before</button>
+            <button ngbDropdownItem>Added after</button>
+            <button ngbDropdownItem>interacted before</button>
+            <button ngbDropdownItem>interacted after</button>
+          </div>
+        </div>
+        <p class="p-dropdown">to</p>
+        <input placeholder="Add.." class="form-control" type="number" />
+        <div class="section-settings_dropdown" ngbDropdown>
+          <button class="btn btn-outline-primary" id="dropdownDays" ngbDropdownToggle>Days</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownDays">
+            <button ngbDropdownItem>Name</button>
+            <button ngbDropdownItem>Company</button>
+            <button ngbDropdownItem>Added before</button>
+            <button ngbDropdownItem>Added after</button>
+            <button ngbDropdownItem>interacted before</button>
+            <button ngbDropdownItem>interacted after</button>
+          </div>
+        </div>
+        <button class="btn btn-primary">Restore default</button>
+      </div>
+
+      <div class="section-settings_form-second">
+        <div class="wrapper-filter">
+          <p class="p-dropdown">Change message body...</p>
+          <div class="section-settings_dropdown" ngbDropdown>
+            <button class="btn btn-outline-primary" id="dropdownMessage" ngbDropdownToggle>Message</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownMessage">
+              <button ngbDropdownItem>Name</button>
+              <button ngbDropdownItem>Company</button>
+              <button ngbDropdownItem>Added before</button>
+              <button ngbDropdownItem>Added after</button>
+              <button ngbDropdownItem>interacted before</button>
+              <button ngbDropdownItem>interacted after</button>
+            </div>
+          </div>
+          <button class="btn btn-primary">Restore default</button>
+          <button class="btn btn-success disabled">Save</button>
+        </div>
+        <div class="wrapper-message">
+          <textarea placeholder="Add messages..." name="messages" cols="30" rows="10"></textarea>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <!-- /Section Filters -->
+</section>

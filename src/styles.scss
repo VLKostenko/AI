@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+
+body {
+	background-color: #e1e6ea;
+}
+
+.nav-tabs {
+	border: none;
+	.nav-link {
+		border: none;
+	}
+	.active {
+		border: none;
+	}
+} 

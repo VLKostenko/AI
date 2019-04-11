@@ -1,0 +1,30 @@
+<section @fade class="section-upload">
+  <div class="container">
+    <div class="row">
+      <div class="offset-xl-3 col-xl-7">
+        <h1>Select files from your computer</h1>
+        <div class="block-upload">
+          <div class="card">
+            <div class="card-header">Form upload</div>
+            <div class="card-body">
+              <div *ngIf="uploadResponse.status === 'progress'">
+                <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100">
+                  {{uploadResponse.message}}%
+                </div>
+              </div>
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <input  type="file" name="file" (change)="onFileChange($event)" multiple/>
+                  <button class="btn btn-success" type="submit">Upload</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <ai-alert></ai-alert>
+        <a class="btn btn-primary" [routerLink]="['/']">Back</a>
+      </div>
+    </div>
+  </div>
+</section>

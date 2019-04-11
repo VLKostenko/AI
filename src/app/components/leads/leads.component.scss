@@ -1,0 +1,25 @@
+
+.d-flex {
+	display: flex;
+}
+
+.section-leads {
+	position: relative;
+	padding-top: 2em;
+	&_search {
+		display: flex;
+		margin-bottom: 1em;
+		&-name {
+
+		}
+		&-recent {
+
+		}
+		&-steps {
+			
+		}
+	}
+	.btn {
+		margin-right: 5px;
+	}
+}

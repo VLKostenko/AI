@@ -1,0 +1,26 @@
+<ai-header></ai-header>
+<section @fade class="section-home">
+  <div class="container wrapper-home">
+    <div class="row">
+      <div class="col-xl-12">
+        <ngb-tabset>
+          <ngb-tab title="Leads">
+            <ng-template ngbTabContent>
+              <router-outlet name="leads"></router-outlet>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Settings">
+            <ng-template ngbTabContent>
+              <router-outlet name="settings"></router-outlet>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Manage Users">
+            <ng-template ngbTabContent>
+              <router-outlet name="manager"></router-outlet>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</section>

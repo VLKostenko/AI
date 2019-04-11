@@ -1,0 +1,34 @@
+<section @fade class="section-login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-6 offset-xl-3">
+        <h1>Login</h1>
+        <ai-alert></ai-alert>
+        <form name="form" (ngSubmit)="onLogin(Login)" #Login="ngForm" [formGroup]="form.formGroup" novalidate>
+          <div class="form-group">
+            <input placeholder="Email" type="text" class="form-control" name="email" formControlName="email" required/>
+            <div class="alert alert-danger" *ngIf="form.getControl('email').invalid && (form.getControl('email').dirty || form.getControl('email').touched)">
+              <div *ngIf="form.getControl('email').errors.required" class="help-block">Email is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+              <input placeholder="Password" type="password" class="form-control" name="password" formControlName="password" required/>
+              <div class="alert alert-danger" *ngIf="form.getControl('password').invalid && (form.getControl('password').dirty || form.getControl('password').touched)">
+                <div *ngIf="form.getControl('password').errors.required" class="help-block">Password is required</div>
+                <div *ngIf="form.getControl('password').hasError('minlength')" class="help-block">Password must has more than 8 characters</div>
+              </div>
+          </div>
+          <div class="form-group">
+            <button
+              class="btn" 
+              type="submit" 
+              [disabled]="!Login.valid" 
+              [ngClass]="Login.valid?'btn btn-primary':'btn btn-outline-secondary'">Login</button>
+            <a [routerLink]="['/registration']" class="btn btn-link">Registration</a>
+            <a [routerLink]="['/forgot']" class="btn btn-link">Forgot password?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

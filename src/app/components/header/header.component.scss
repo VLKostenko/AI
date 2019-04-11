@@ -1,0 +1,25 @@
+.header {
+	position: relative;
+	height: 6em;
+	padding-top: 0.5em;
+	background-color: #6b91c9;
+	&_wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: calc(100% - 20em);
+		margin: 0 auto;
+		&_user {
+			display: flex;
+		}
+	}
+	&_nav	{
+		&-ul {
+			display: flex;
+			list-style-type: none;
+			.link {
+				margin-right: 15px;
+			}
+		}
+	}
+}

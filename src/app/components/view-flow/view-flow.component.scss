@@ -1,0 +1,18 @@
+.section-flow {
+	position: relative;
+	margin-top: 5em;
+	h1 {
+		text-align: center;
+	}
+	.block-img {
+		width: 100%;
+		position: relative;
+		.image {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.btn {
+		font-size: 20px;
+	}
+}
